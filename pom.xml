@@ -16,53 +16,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.2</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <!-- Relocate shaded InvUI to avoid conflicts -->
-                            <relocations>
-                                <relocation>
-                                    <pattern>xyz.xenondevs.invui</pattern>
-                                    <shadedPattern>barry.eventmanager.libs.invui</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>xyz.xenondevs.inventoryaccess</pattern>
-                                    <shadedPattern>barry.eventmanager.libs.inventoryaccess</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-    </build>
-
     <repositories>
         <!-- Paper API -->
         <repository>
