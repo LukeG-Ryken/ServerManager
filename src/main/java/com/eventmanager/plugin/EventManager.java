@@ -2,7 +2,6 @@ package com.eventmanager.plugin;
 
 import com.eventmanager.plugin.handlers.CommandHandler;
 import com.eventmanager.plugin.handlers.TabHandler;
-import com.eventmanager.plugin.managers.DataManager;
 import com.eventmanager.plugin.managers.StateManager;
 import com.eventmanager.plugin.managers.GuiManager;
 import com.eventmanager.plugin.listeners.PortalListener;
