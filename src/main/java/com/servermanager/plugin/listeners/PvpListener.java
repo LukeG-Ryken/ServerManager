@@ -1,6 +1,6 @@
-package com.eventmanager.plugin.listeners;
+package com.servermanager.plugin.listeners;
 
-import com.eventmanager.plugin.EventManager;
+import com.servermanager.plugin.ServerManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -11,9 +11,9 @@ import org.bukkit.projectiles.ProjectileSource;
 
 public class PvpListener implements Listener {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
-    public PvpListener(EventManager plugin) {
+    public PvpListener(ServerManager plugin) {
         this.plugin = plugin;
     }
 

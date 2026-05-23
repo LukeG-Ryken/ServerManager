@@ -1,6 +1,6 @@
-package com.eventmanager.plugin.listeners;
+package com.servermanager.plugin.listeners;
 
-import com.eventmanager.plugin.EventManager;
+import com.servermanager.plugin.ServerManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,9 +9,9 @@ import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 
 public class PortalListener implements Listener {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
-    public PortalListener(EventManager plugin) {
+    public PortalListener(ServerManager plugin) {
         this.plugin = plugin;
     }
 

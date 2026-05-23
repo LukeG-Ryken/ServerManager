@@ -1,11 +1,11 @@
-package com.eventmanager.plugin.managers;
+package com.servermanager.plugin.managers;
 
-import com.eventmanager.plugin.EventManager;
+import com.servermanager.plugin.ServerManager;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class StateManager {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
     // Keys in config
     private static final String PVP    = "Manager.pvp";
@@ -14,7 +14,7 @@ public class StateManager {
     private static final String NETHER = "Manager.nether";
     private static final String END    = "Manager.end";
 
-    public StateManager(EventManager plugin) {
+    public StateManager(ServerManager plugin) {
         this.plugin = plugin;
     }
 

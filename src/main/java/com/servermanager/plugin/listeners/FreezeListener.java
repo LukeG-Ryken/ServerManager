@@ -1,6 +1,6 @@
-package com.eventmanager.plugin.listeners;
+package com.servermanager.plugin.listeners;
 
-import com.eventmanager.plugin.EventManager;
+import com.servermanager.plugin.ServerManager;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,9 +10,9 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class FreezeListener implements Listener {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
-    public FreezeListener(EventManager plugin) {
+    public FreezeListener(ServerManager plugin) {
         this.plugin = plugin;
     }
 

@@ -1,7 +1,6 @@
-package com.eventmanager.plugin.managers;
+package com.servermanager.plugin.managers;
 
-import com.eventmanager.plugin.EventManager;
-import com.eventmanager.plugin.managers.StateManager;
+import com.servermanager.plugin.ServerManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
@@ -17,9 +16,9 @@ import java.util.List;
 
 public class GuiManager {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
-    public GuiManager(EventManager plugin) {
+    public GuiManager(ServerManager plugin) {
         this.plugin = plugin;
     }
 

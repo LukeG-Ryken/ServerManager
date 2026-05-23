@@ -1,4 +1,4 @@
-package com.eventmanager.plugin.managers;
+package com.servermanager.plugin.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;

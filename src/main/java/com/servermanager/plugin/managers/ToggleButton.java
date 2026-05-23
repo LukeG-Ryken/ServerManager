@@ -1,8 +1,8 @@
-package com.eventmanager.plugin.managers;
+package com.servermanager.plugin.managers;
 
-import com.eventmanager.plugin.EventManager;
+import com.servermanager.plugin.ServerManager;
+import com.sun.security.ntlm.Server;
 import xyz.xenondevs.invui.item.ItemProvider;
-import xyz.xenondevs.invui.item.Click;
 import xyz.xenondevs.invui.item.impl.AbstractItem;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -14,10 +14,10 @@ import java.util.function.Consumer;
 public class ToggleButton extends AbstractItem {
 
     private final ItemProvider itemProvider;
-    private final EventManager plugin;
+    private final ServerManager plugin;
     private final Consumer<Player> onClick;
 
-    public ToggleButton(ItemProvider itemProvider, EventManager plugin, Consumer<Player> onClick) {
+    public ToggleButton(ItemProvider itemProvider, ServerManager plugin, Consumer<Player> onClick) {
         this.itemProvider = itemProvider;
         this.plugin = plugin;
         this.onClick = onClick;

@@ -1,7 +1,6 @@
-package com.eventmanager.plugin.handlers;
+package com.servermanager.plugin.handlers;
 
-import com.eventmanager.plugin.EventManager;
-import com.eventmanager.plugin.managers.GuiManager;
+import com.servermanager.plugin.ServerManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +9,9 @@ import org.bukkit.entity.Player;
 
 public class CommandHandler implements CommandExecutor {
 
-    private final EventManager plugin;
+    private final ServerManager plugin;
 
-    public CommandHandler(EventManager plugin) {
+    public CommandHandler(ServerManager plugin) {
         this.plugin = plugin;
     }
 

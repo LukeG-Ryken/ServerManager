@@ -1,4 +1,4 @@
-package com.eventmanager.plugin.handlers;
+package com.servermanager.plugin.handlers;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
