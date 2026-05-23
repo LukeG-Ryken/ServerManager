@@ -33,19 +33,19 @@ public class GuiManager {
                 .addIngredient('#', new xyz.xenondevs.invui.item.impl.SimpleItem(
                         new ItemWrapper(filler())))
                 .addIngredient('P', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.DIAMOND_SWORD,  "PVP",    state.isPvp())),
+                        new ItemWrapper(statusItem(Material.NETHERITE_SWORD,  "PVP",    state.isPvp())),
                         plugin, p -> state.togglePvp()))
                 .addIngredient('V', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.PIG_SPAWN_EGG, "PVE",    state.isPve())),
+                        new ItemWrapper(statusItem(Material.COW_SPAWN_EGG, "PVE",    state.isPve())),
                         plugin, p -> state.togglePve()))
                 .addIngredient('F', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.BLUE_ICE,       "Freeze", state.isFrozen())),
+                        new ItemWrapper(statusItem(Material.PACKED_ICE,       "Freeze", state.isFrozen())),
                         plugin, p -> state.toggleFrozen()))
                 .addIngredient('N', new ToggleButton(
                         new ItemWrapper(statusItem(Material.NETHERRACK,     "Nether", state.isNether())),
                         plugin, p -> state.toggleNether()))
                 .addIngredient('E', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.END_STONE,      "End",    state.isEnd())),
+                        new ItemWrapper(statusItem(Material.CHORUS_FRUIT,      "End",    state.isEnd())),
                         plugin, p -> state.toggleEnd()))
                 .build();
 

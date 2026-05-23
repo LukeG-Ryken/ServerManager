@@ -1,7 +1,7 @@
 name: EventManager
 version: '1.2'
 main: com.eventmanager.plugin.EventManager
-api-version: '1.21'
+api-version: '26.1'
 commands:
   Manager:
     usage: /Manager
