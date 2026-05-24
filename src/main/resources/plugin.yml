@@ -1,7 +1,7 @@
-name: EventManager
+name: ServerManager
 version: '26.1.2'
 main: com.servermanager.plugin.ServerManager
-api-version: '26.1'
+api-version: '26.1.2'
 commands:
   Manager:
     usage: /Manager
