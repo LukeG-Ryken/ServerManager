@@ -1,9 +1,9 @@
 name: EventManager
 version: '1.2'
-main: com.eventmanager.plugin.EventManager
+main: com.servermanager.plugin.ServerManager
 api-version: '26.1'
 commands:
   Manager:
     usage: /Manager
-    description: Opens the Event Manager GUI
+    description: Opens the Server Manager GUI
     permission: manager.admin
