@@ -4,6 +4,6 @@ main: com.servermanager.plugin.ServerManager
 api-version: '26.1.2'
 commands:
   Manager:
-    usage: /Manager
+    usage: /manager
     description: Opens the Server Manager GUI
     permission: manager.admin

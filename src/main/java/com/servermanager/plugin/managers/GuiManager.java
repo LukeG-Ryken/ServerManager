@@ -10,6 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import xyz.xenondevs.inventoryaccess.component.ComponentWrapper;
 import xyz.xenondevs.invui.gui.Gui;
 import xyz.xenondevs.invui.item.ItemWrapper;
+import xyz.xenondevs.invui.item.impl.SimpleItem;
 import xyz.xenondevs.invui.window.Window;
 
 import java.util.List;
@@ -27,28 +28,27 @@ public class GuiManager {
 
         Gui gui = Gui.normal()
                 .setStructure("# # P V F N E # #")
-                .addIngredient('#', new xyz.xenondevs.invui.item.impl.SimpleItem(
-                        new ItemWrapper(filler())))
+                .addIngredient('#', new SimpleItem(new ItemWrapper(filler())))
                 .addIngredient('P', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.NETHERITE_SWORD,  "PVP",    state.isPvp())),
-                        plugin, p -> state.togglePvp()))
+                        new ItemWrapper(statusItem(Material.NETHERITE_SWORD, "PVP", state.isPvp())),
+                        plugin, p -> { state.togglePvp(); openGui(player); }))
                 .addIngredient('V', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.COW_SPAWN_EGG, "PVE",    state.isPve())),
-                        plugin, p -> state.togglePve()))
+                        new ItemWrapper(statusItem(Material.COW_SPAWN_EGG, "PVE", state.isPve())),
+                        plugin, p -> { state.togglePve(); openGui(player); }))
                 .addIngredient('F', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.PACKED_ICE,       "Freeze", state.isFrozen())),
-                        plugin, p -> state.toggleFrozen()))
+                        new ItemWrapper(statusItem(Material.PACKED_ICE, "Freeze", state.isFrozen())),
+                        plugin, p -> { state.toggleFrozen(); openGui(player); }))
                 .addIngredient('N', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.NETHERRACK,     "Nether", state.isNether())),
-                        plugin, p -> state.toggleNether()))
+                        new ItemWrapper(statusItem(Material.NETHERRACK, "Nether", state.isNether())),
+                        plugin, p -> { state.toggleNether(); openGui(player); }))
                 .addIngredient('E', new ToggleButton(
-                        new ItemWrapper(statusItem(Material.CHORUS_FRUIT,      "End",    state.isEnd())),
-                        plugin, p -> state.toggleEnd()))
+                        new ItemWrapper(statusItem(Material.CHORUS_FRUIT, "End", state.isEnd())),
+                        plugin, p -> { state.toggleEnd(); openGui(player); }))
                 .build();
 
         Window.single()
                 .setViewer(player)
-                .setTitle((ComponentWrapper) Component.text("Event Manager", NamedTextColor.DARK_AQUA))
+                .setTitle((ComponentWrapper) Component.text("Server Manager", NamedTextColor.DARK_AQUA))
                 .setGui(gui)
                 .build()
                 .open();
