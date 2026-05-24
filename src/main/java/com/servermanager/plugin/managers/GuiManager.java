@@ -24,12 +24,6 @@ public class GuiManager implements Listener {
     private final ServerManager plugin;
     private final Set<UUID> openInventories = new HashSet<>();
 
-    // Slot indices for the 5 toggles (in an 18-slot / 2-row inventory)
-    // Row 0 (top):    slots 0-8  — icon + label
-    // Row 1 (bottom): slots 9-17 — red/green status
-    // Toggles at columns 2,3,4,5,6
-    private static final int[] TOGGLE_COLS = {2, 3, 4, 5, 6};
-
     public GuiManager(ServerManager plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -41,17 +35,35 @@ public class GuiManager implements Listener {
         Inventory inv = Bukkit.createInventory(null, 18,
                 Component.text("Event Manager", NamedTextColor.DARK_AQUA));
 
-        // Fillers
         for (int i = 0; i < 18; i++) inv.setItem(i, filler());
 
-        // Top row — icon + description
-        inv.setItem(2, iconItem(Material.NETHERITE_SWORD, "PVP",    "Toggles player vs player damage"));
-        inv.setItem(3, iconItem(Material.COW_SPAWN_EGG,   "PVE",    "Toggles player vs environment damage"));
-        inv.setItem(4, iconItem(Material.PACKED_ICE,       "Freeze", "Freezes all players in place"));
-        inv.setItem(5, iconItem(Material.NETHERRACK,       "Nether", "Toggles access to the Nether"));
-        inv.setItem(6, iconItem(Material.CHORUS_FRUIT,     "End",    "Toggles access to the End"));
+        // Top row — icon + name + state-aware description
+        inv.setItem(2, iconItem(Material.NETHERITE_SWORD, "PVP",
+                state.isPvp()
+                        ? "PvP is enabled"
+                        : "PvP is disabled"));
 
-        // Bottom row — green/red toggle button
+        inv.setItem(3, iconItem(Material.COW_SPAWN_EGG, "PVE",
+                state.isPve()
+                        ? "Players can take environment damage"
+                        : "Players are safe from the environment"));
+
+        inv.setItem(4, iconItem(Material.PACKED_ICE, "Freeze",
+                state.isFrozen()
+                        ? "Players are frozen in place"
+                        : "Players can move freely"));
+
+        inv.setItem(5, iconItem(Material.NETHERRACK, "Nether",
+                state.isNether()
+                        ? "The Nether is accessible"
+                        : "The Nether is blocked"));
+
+        inv.setItem(6, iconItem(Material.CHORUS_FRUIT, "End",
+                state.isEnd()
+                        ? "The End is accessible"
+                        : "The End is blocked"));
+
+        // Bottom row — green/red toggle directly below each icon
         inv.setItem(11, toggleItem(state.isPvp()));
         inv.setItem(12, toggleItem(state.isPve()));
         inv.setItem(13, toggleItem(state.isFrozen()));
@@ -69,11 +81,10 @@ public class GuiManager implements Listener {
         if (!Component.text("Event Manager", NamedTextColor.DARK_AQUA)
                 .equals(event.getView().title())) return;
 
-        event.setCancelled(true); // always cancel — prevents taking items
+        event.setCancelled(true);
 
         StateManager state = plugin.getStateManager();
 
-        // Only respond to clicks on the bottom row toggle buttons
         switch (event.getSlot()) {
             case 11 -> state.togglePvp();
             case 12 -> state.togglePve();
@@ -83,7 +94,7 @@ public class GuiManager implements Listener {
             default -> { return; }
         }
 
-        openGui(player); // reopen with updated state
+        openGui(player);
     }
 
     @EventHandler
@@ -103,7 +114,6 @@ public class GuiManager implements Listener {
     }
 
     private ItemStack toggleItem(boolean enabled) {
-        // GREEN_STAINED_GLASS_PANE when on, RED when off
         Material mat = enabled ? Material.GREEN_STAINED_GLASS_PANE : Material.RED_STAINED_GLASS_PANE;
         ItemStack item = new ItemStack(mat);
         ItemMeta meta = item.getItemMeta();
