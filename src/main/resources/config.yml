@@ -1,2 +1,22 @@
-#Admin Commands: manager.admin
-#Bypass:         manager.bypass
+# ServerManager Configuration
+
+Manager:
+  # PvP - player vs player damage
+  # Default: true (enabled)
+  pvp: true
+
+  # PvE - player vs environment damage
+  # Default: true (enabled)
+  pve: true
+
+  # Freeze - freezes all players in place
+  # Default: false (disabled)
+  frozen: false
+
+  # Nether - controls access to the Nether dimension
+  # Default: true (enabled)
+  nether: true
+
+  # End - controls access to the End dimension
+  # Default: true (enabled)
+  end: true
