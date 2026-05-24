@@ -1,7 +1,6 @@
 package com.servermanager.plugin.managers;
 
 import com.servermanager.plugin.ServerManager;
-import com.sun.security.ntlm.Server;
 import xyz.xenondevs.invui.item.ItemProvider;
 import xyz.xenondevs.invui.item.impl.AbstractItem;
 import org.bukkit.Sound;
