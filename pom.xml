@@ -21,11 +21,19 @@
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
-        <repository>
-            <id>xenondevs</id>
-            <url>https://repo.xenondevs.xyz/releases</url>
-        </repository>
     </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
@@ -34,54 +42,6 @@
             <version>[26.1.2.build,)</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- FIXED: single version, type jar (not pom), scope compile -->
-        <dependency>
-            <groupId>xyz.xenondevs.invui</groupId>
-            <artifactId>invui-core</artifactId>
-            <version>1.45</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>21</release>
-                </configuration>
-            </plugin>
-
-            <!-- ADDED: shades InvUI classes into your JAR -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>xyz.xenondevs.invui</pattern>
-                                    <shadedPattern>com.servermanager.libs.invui</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>xyz.xenondevs.inventoryaccess</pattern>
-                                    <shadedPattern>com.servermanager.libs.inventoryaccess</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

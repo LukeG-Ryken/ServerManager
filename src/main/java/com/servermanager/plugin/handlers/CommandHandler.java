@@ -22,12 +22,10 @@ public class CommandHandler implements CommandExecutor {
             sender.sendMessage(Component.text("This command can only be used by players.", NamedTextColor.RED));
             return true;
         }
-
         if (!player.hasPermission("manager.admin")) {
             sender.sendMessage(Component.text("You do not have permission for this command.", NamedTextColor.RED));
             return true;
         }
-
         plugin.getGuiManager().openGui(player);
         return true;
     }
