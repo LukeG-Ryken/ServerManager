@@ -48,11 +48,17 @@
             <version>[26.1.2.build,)</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>xyz.xenondevs.invui</groupId>
             <artifactId>invui</artifactId>
             <version>2.0.0</version>
+            <type>pom</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>xyz.xenondevs.invui</groupId>
+            <artifactId>invui</artifactId>
+            <version>1.45</version>
             <type>pom</type>
             <scope>compile</scope>
         </dependency>

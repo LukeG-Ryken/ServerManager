@@ -25,10 +25,8 @@ public class GuiManager {
     public void openGui(Player player) {
         StateManager state = plugin.getStateManager();
 
-        // Layout: 9 slots — fillers around 5 toggle buttons
-        // Slot indices: 0=filler, 1=PVP, 2=PVE, 3=Freeze, 4=Nether, 5=End, 6-8=filler
         Gui gui = Gui.normal()
-                .setStructure("# P V F N E #")
+                .setStructure("# # P V F N E # #")
                 .addIngredient('#', new xyz.xenondevs.invui.item.impl.SimpleItem(
                         new ItemWrapper(filler())))
                 .addIngredient('P', new ToggleButton(
