@@ -48,7 +48,7 @@ public class GuiManager {
 
         Window.single()
                 .setViewer(player)
-                .setTitle((ComponentWrapper) Component.text("Server Manager", NamedTextColor.DARK_AQUA))
+                .setTitle("Server Manager")
                 .setGui(gui)
                 .build()
                 .open();
